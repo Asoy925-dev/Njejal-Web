@@ -1,0 +1,164 @@
+/* ====== Token ====== */
+:root {
+  --forest: #26382d;
+  --forest-2: #1b2a21;
+  --mist: #eef1ec;
+  --paper: #f8faf6;
+  --rose: #c78f8a;
+  --brass: #b3925a;
+  --ink: #22291f;
+  --muted: #5d6b60;
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+body.locked { overflow: hidden; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; margin: 0; }
+h2 { font-size: clamp(2rem, 6vw, 2.8rem); text-align: center; margin-bottom: 1.5rem; }
+h3 { font-size: 1.5rem; }
+p { margin: 0 0 1rem; }
+:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+
+.small { font-size: .95rem; letter-spacing: .04em; opacity: .85; }
+.center { text-align: center; }
+.muted { color: var(--muted); max-width: 46ch; margin-inline: auto; text-align: center; }
+code { background: rgba(0,0,0,.06); padding: .1em .4em; border-radius: 3px; font-size: .9em; }
+
+/* ====== Nama mempelai ====== */
+.names { font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 14vw, 5rem); margin: .4rem 0 1.2rem; }
+.names span { font-style: italic; color: var(--rose); padding: 0 .1em; }
+.names.big { font-size: clamp(3.4rem, 17vw, 7rem); }
+
+/* ====== Tombol ====== */
+.btn {
+  display: inline-block; cursor: pointer; border: 1px solid var(--brass);
+  background: var(--brass); color: #fff; font: 400 1rem var(--sans);
+  padding: .8rem 1.9rem; border-radius: 999px; text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.btn:hover { background: transparent; color: var(--brass); }
+.btn.light { background: var(--mist); border-color: var(--mist); color: var(--forest); }
+.btn.light:hover { background: transparent; color: var(--mist); }
+.btn.ghost { background: transparent; border-color: rgba(255,255,255,.5); color: #fff; margin-left: .4rem; }
+.btn.ghost:hover { background: rgba(255,255,255,.12); color: #fff; }
+.small-btn { padding: .5rem 1.2rem; font-size: .9rem; }
+
+/* ====== Cover: pintu yang terbelah ====== */
+.cover { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; text-align: center; color: var(--mist); }
+.door { position: absolute; top: 0; bottom: 0; width: 50%; background: var(--forest); transition: transform 1.3s cubic-bezier(.7, 0, .2, 1); }
+.door-l { left: 0; border-right: 1px solid rgba(179,146,90,.5); }
+.door-r { right: 0; }
+.cover-content { position: relative; padding: 1.5rem; transition: opacity .5s; }
+.cover .guest { font-family: var(--serif); font-size: 1.8rem; margin: .2rem 0 1.8rem; color: #fff; }
+.cover.open { pointer-events: none; }
+.cover.open .cover-content { opacity: 0; }
+.cover.open .door-l { transform: translateX(-100%); }
+.cover.open .door-r { transform: translateX(100%); }
+.cover.gone { display: none; }
+
+/* ====== Musik ====== */
+.music {
+  position: fixed; right: 1rem; bottom: 1rem; z-index: 40; width: 46px; height: 46px;
+  border-radius: 50%; border: 1px solid var(--brass); background: var(--forest); color: var(--mist);
+  font-size: 1.2rem; cursor: pointer;
+}
+.music.playing { animation: spin 6s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ====== Hero ====== */
+.hero {
+  min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 3rem 1.5rem; color: var(--mist);
+  background: linear-gradient(rgba(27,42,33,.82), rgba(27,42,33,.92)), var(--forest) url("../assets/img/hero.jpg") center / cover;
+}
+.hero .date { font-family: var(--serif); font-size: 1.6rem; margin-bottom: 2rem; }
+.countdown { display: flex; gap: .8rem; }
+.countdown div { min-width: 68px; padding: .7rem .4rem; border: 1px solid rgba(179,146,90,.6); border-radius: 4px; }
+.countdown b { display: block; font: 600 1.8rem var(--serif); }
+.countdown small { font-size: .8rem; opacity: .8; }
+
+/* ====== Section umum ====== */
+.section { padding: 5rem 1.5rem; max-width: 960px; margin-inline: auto; }
+.section.dark, .section.tint, .footer { max-width: none; }
+.section.dark > *, .section.tint > * { max-width: 780px; margin-inline: auto; }
+.section.dark { background: var(--forest); color: var(--mist); text-align: center; }
+.section.tint { background: var(--mist); }
+
+.quote { font-family: var(--serif); font-style: italic; font-size: 1.5rem; text-align: center; max-width: 36ch; margin: 0 auto 1rem; }
+
+/* ====== Mempelai ====== */
+.couple { display: grid; gap: 3rem; margin-top: 3.5rem; text-align: center; }
+.photo {
+  width: 210px; aspect-ratio: 3 / 4; margin: 0 auto 1.4rem; border-radius: 105px 105px 6px 6px;
+  background: linear-gradient(160deg, var(--forest), #5a7060); border: 1px solid var(--brass); outline: 6px solid var(--mist);
+  background-size: cover; background-position: center;
+}
+.photo.alt { background: linear-gradient(160deg, #b57a76, var(--rose)); }
+/* Ganti foto: .photo { background-image: url("../assets/img/pria.jpg"); } */
+
+/* ====== Acara ====== */
+.events { display: grid; gap: 1.2rem; margin-bottom: 2rem; }
+.event { border: 1px solid rgba(179,146,90,.55); padding: 1.8rem 1rem; border-radius: 4px; }
+.event .when { margin: .6rem 0 0; }
+.venue { margin-bottom: 1.6rem; }
+
+/* ====== Galeri ====== */
+.gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: .6rem; margin-top: 2rem; }
+.g { aspect-ratio: 1; background: var(--forest); background-size: cover; background-position: center; border-radius: 4px; }
+.g1 { grid-column: span 2; aspect-ratio: 16 / 9; }
+.g2 { background-color: #5a7060; }
+.g3 { background-color: var(--rose); }
+.g4 { background-color: var(--brass); }
+.g5 { background-color: #3d5446; grid-column: span 2; aspect-ratio: 16 / 9; }
+
+/* ====== Hadiah ====== */
+.gifts { display: grid; gap: 1rem; margin-top: 2rem; }
+.gift { background: var(--paper); text-align: center; padding: 1.8rem 1rem; border-radius: 6px; border: 1px solid #d5dcd2; }
+.acc { font: 600 1.7rem var(--serif); letter-spacing: .08em; margin: .4rem 0 0; }
+
+/* ====== Form & ucapan ====== */
+.form { display: grid; gap: 1rem; max-width: 520px; margin: 0 auto 3rem; }
+.form label { display: grid; gap: .3rem; font-size: .95rem; }
+.form input, .form select, .form textarea {
+  font: 300 1rem var(--sans); padding: .75rem .9rem; border: 1px solid #b9c4b8; border-radius: 4px;
+  background: #fff; color: var(--ink); width: 100%;
+}
+.form .btn { justify-self: start; }
+.error { color: #a1403a; min-height: 1.2em; margin: 0; font-size: .95rem; }
+
+.wishes { max-width: 520px; margin: 0 auto; display: grid; gap: .8rem; max-height: 420px; overflow-y: auto; }
+.wish { padding: 1rem 1.2rem; background: var(--mist); border-left: 3px solid var(--brass); border-radius: 0 4px 4px 0; }
+.wish strong { font-family: var(--serif); font-size: 1.15rem; }
+.wish em { font-size: .8rem; color: var(--muted); font-style: normal; margin-left: .5rem; }
+.wish p { margin: .3rem 0 0; overflow-wrap: anywhere; }
+.empty { text-align: center; color: var(--muted); }
+
+/* ====== Footer ====== */
+.footer { background: var(--forest-2); color: var(--mist); text-align: center; padding: 4rem 1.5rem; }
+.footer p { max-width: 44ch; margin-inline: auto; }
+
+/* ====== Tablet & desktop ====== */
+@media (min-width: 720px) {
+  .couple, .events, .gifts { grid-template-columns: 1fr 1fr; }
+  .gallery { grid-template-columns: repeat(4, 1fr); }
+  .g1 { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+  .g5 { grid-column: span 2; aspect-ratio: auto; }
+  .countdown div { min-width: 90px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .door, .cover-content { transition-duration: .01s; }
+  .music.playing { animation: none; }
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Undangan Pernikahan Raka & Ayu</title>
+  <meta name="description" content="Kami mengundang Anda di hari pernikahan Raka & Ayu, Sabtu 20 Desember 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="locked">
+
+  <!-- COVER -->
+  <section class="cover" id="cover" aria-label="Sampul undangan">
+    <div class="door door-l"></div>
+    <div class="door door-r"></div>
+    <div class="cover-content">
+      <p class="small">Undangan Pernikahan</p>
+      <h1 class="names">Raka <span>&amp;</span> Ayu</h1>
+      <p class="small">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+      <p class="guest" id="guestName">Tamu Undangan</p>
+      <button class="btn" id="openBtn" type="button">Buka Undangan</button>
+    </div>
+  </section>
+
+  <button class="music" id="musicBtn" type="button" aria-label="Putar atau jeda musik" hidden>♪</button>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <p class="small">Kami akan menikah</p>
+      <h2 class="names big">Raka <span>&amp;</span> Ayu</h2>
+      <p class="date">Sabtu, 20 Desember 2026</p>
+      <div class="countdown" id="countdown" aria-live="off">
+        <div><b id="cdDays">0</b><small>hari</small></div>
+        <div><b id="cdHours">0</b><small>jam</small></div>
+        <div><b id="cdMins">0</b><small>menit</small></div>
+        <div><b id="cdSecs">0</b><small>detik</small></div>
+      </div>
+    </section>
+
+    <!-- MEMPELAI -->
+    <section class="section" id="mempelai">
+      <p class="quote">“Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan untukmu agar kamu merasa tenteram kepadanya.”</p>
+      <p class="small center">QS. Ar-Rum: 21</p>
+
+      <div class="couple">
+        <article>
+          <div class="photo" role="img" aria-label="Foto mempelai pria"></div>
+          <h3>Raka Pratama, S.T.</h3>
+          <p>Putra pertama dari<br>Bapak Hendra Pratama &amp; Ibu Sri Wahyuni</p>
+        </article>
+        <article>
+          <div class="photo alt" role="img" aria-label="Foto mempelai wanita"></div>
+          <h3>Ayu Lestari, S.Ak.</h3>
+          <p>Putri kedua dari<br>Bapak Bambang Santoso &amp; Ibu Dewi Anggraini</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ACARA -->
+    <section class="section dark" id="acara">
+      <h2>Waktu &amp; Tempat</h2>
+      <div class="events">
+        <article class="event">
+          <h3>Akad Nikah</h3>
+          <p class="when">Sabtu, 20 Desember 2026<br>08.00 – 10.00 WIB</p>
+        </article>
+        <article class="event">
+          <h3>Resepsi</h3>
+          <p class="when">Sabtu, 20 Desember 2026<br>11.00 – 14.00 WIB</p>
+        </article>
+      </div>
+      <p class="venue"><strong>Gedung Graha Kencana</strong><br>Jl. Pemuda No. 12, Semarang, Jawa Tengah</p>
+      <a class="btn light" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Gedung+Graha+Kencana+Semarang">Buka Google Maps</a>
+      <a class="btn ghost" id="calBtn" href="#">Simpan ke Kalender</a>
+    </section>
+
+    <!-- GALERI -->
+    <section class="section" id="galeri">
+      <h2>Galeri</h2>
+      <p class="center muted">Ganti kotak berwarna ini dengan foto Anda di folder <code>assets/img</code>.</p>
+      <div class="gallery">
+        <div class="g g1"></div><div class="g g2"></div><div class="g g3"></div>
+        <div class="g g4"></div><div class="g g5"></div>
+      </div>
+    </section>
+
+    <!-- HADIAH -->
+    <section class="section tint" id="hadiah">
+      <h2>Kado Digital</h2>
+      <p class="center muted">Doa restu Anda sudah sangat berarti. Bila ingin berbagi tanda kasih, kami menerimanya melalui rekening berikut.</p>
+      <div class="gifts">
+        <div class="gift">
+          <h3>Bank BCA</h3>
+          <p class="acc" id="acc1">1234567890</p>
+          <p>a.n. Raka Pratama</p>
+          <button class="btn small-btn" type="button" data-copy="acc1">Salin nomor</button>
+        </div>
+        <div class="gift">
+          <h3>Bank Mandiri</h3>
+          <p class="acc" id="acc2">0987654321</p>
+          <p>a.n. Ayu Lestari</p>
+          <button class="btn small-btn" type="button" data-copy="acc2">Salin nomor</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP & UCAPAN -->
+    <section class="section" id="rsvp">
+      <h2>Konfirmasi &amp; Ucapan</h2>
+      <form id="rsvpForm" class="form" novalidate>
+        <label>Nama
+          <input type="text" id="fName" name="nama" required maxlength="60" autocomplete="name">
+        </label>
+        <label>Kehadiran
+          <select id="fAttend" name="hadir" required>
+            <option value="Hadir">Insya Allah hadir</option>
+            <option value="Tidak hadir">Maaf, tidak bisa hadir</option>
+            <option value="Ragu">Belum pasti</option>
+          </select>
+        </label>
+        <label>Ucapan &amp; doa
+          <textarea id="fMsg" name="ucapan" rows="4" required maxlength="300"></textarea>
+        </label>
+        <p class="error" id="formError" role="alert"></p>
+        <button class="btn" type="submit">Kirim ucapan</button>
+      </form>
+
+      <div class="wishes" id="wishes" aria-label="Daftar ucapan"></div>
+    </section>
+
+    <footer class="footer">
+      <p>Merupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
+      <h2 class="names">Raka <span>&amp;</span> Ayu</h2>
+      <p class="small">Terima kasih</p>
+    </footer>
+  </main>
+
+  <audio id="bgm" loop preload="none">
+    <!-- Letakkan file musik di assets/audio/musik.mp3 -->
+    <source src="assets/audio/musik.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
