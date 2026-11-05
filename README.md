@@ -1,2 +1,0 @@
-# Njejal-Web
-njejal
